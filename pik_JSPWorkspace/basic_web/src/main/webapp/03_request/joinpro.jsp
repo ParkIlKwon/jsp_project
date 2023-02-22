@@ -8,6 +8,7 @@
 </head>
 <body>
 	<%
+	
 	request.setCharacterEncoding("utf-8");
 	String name = request.getParameter("name");
 	String id = request.getParameter("id");
