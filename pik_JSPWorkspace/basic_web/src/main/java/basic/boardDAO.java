@@ -3,7 +3,8 @@ package basic;
 import java.util.ArrayList;
 
 public class boardDAO {
-
+	
+	int numbering = 3;
 	private ArrayList<board>boardArray;
 	private boardDAO(){
 		boardArray = new ArrayList<board>();
@@ -30,5 +31,41 @@ public class boardDAO {
 		return boardArray;
 	}
 	
+	public void addDummyBoardArray() {
+		for (int i = 0; i < 10; i++) {
+			int num = getNumber();
+			String no = num + "";
+			boardArray.add(new board(num,"작성자"+no,"2022-02-23", "제목"+no, "내용"+no));
+		}
+	}
 	
+	public int getNumber() {
+		if(boardArray.size() == 0){
+			numbering = 1;
+		}
+		else {
+			numbering = boardArray.get(boardArray.size()-1).getId() + 1;
+		}
+		return numbering;
+	}
+	
+	public void deleteBoard(int index) {
+		boardArray.remove(index);
+	}
+	
+	public board getSelectiveBoardArray(int index) {
+		return boardArray.get(index);
+	}
+	
+	public void fixBoardBody(int index, board b) {
+		boardArray.set(index, b);
+	}
+	
+	public void deleteAllBoard() {
+		boardArray.clear();
+	}
+	
+	public void addBoard(board b) {
+		boardArray.add(b);
+	}
 }

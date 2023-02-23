@@ -11,3 +11,9 @@ body{
 #homebtn{
 	margin-top: 20px;
 }
+
+#boardcnt{
+	background-color:gray;
+	display: flex;
+	justify-content: flex-start;
+}

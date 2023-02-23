@@ -25,12 +25,14 @@
 		<td><%=boardArr.get(i).getId()%></td>
 		<td><%=boardArr.get(i).getName()%></td>
 		<td><%=boardArr.get(i).getDate()%></td>
-		<td><%=boardArr.get(i).getTitle()%></td>
+		<td><a href = "_05_updateBoard.jsp?index=<%=i%>"><%=boardArr.get(i).getTitle()%></a></td>
 		<td><%=boardArr.get(i).getBody()%></td>
-		<td><input type="button" value="삭제"></td>
+		<td><input type="button" value="삭제" onclick="location.
+		href = '_03_deleteBoardpro.jsp?index=<%=i%>&stat=<%=1%>'"></td>
 	</tr>
 	<%}%>
 	</table>
-		<input type="button" value="뒤로가기" id="homebtn">
+		<input type="button" value="뒤로가기" id="homebtn" onclick="location.
+		href = '_00_main.jsp'">
 </body>
 </html>

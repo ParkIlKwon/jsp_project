@@ -3,7 +3,7 @@ package basic;
 public class board {
 	private int id ;
 	private String name;
-	private String  date;
+	private String date;
 	private String title;
 	private String body;
 	
