@@ -15,13 +15,10 @@
 	int totalBoardCnt = boardArray.size();
 	int sn = 0;
 	int en = 0;
-	if(request.getParameter("sn") == null || request.getParameter("en") == null){
-	sn = 1;
-	en = 1;
-	}else{
+
 	sn = Integer.parseInt(request.getParameter("sn"));
 	en = Integer.parseInt(request.getParameter("en"));
-	}
+	
 	%>
 	<h1>게시글 페이징</h1>
 	<h3 id="boardcnt">전체 게시글 수: <%=totalBoardCnt %></h3>
@@ -60,7 +57,6 @@
 	<%} %>
 	<tr><td colspan="6"> <input type="button" value="메인화면" onclick="location.href='_00_main.jsp'"/> </td></tr>
 	</table>
-	
 	<%
 	int oneListNum = 3;
 	int currentNum = en;
@@ -85,7 +81,7 @@
 	<%
 	for(k = startNum ; k <= endNum ; k ++ ){
 		%>
-	[<a href="_07_boardListPaging.jsp?sn=<%=k%>&en=<%=currentNum%>"><%=k %></a>]
+	[<a href="_07_boardListPaging.jsp?sn=<%=k%>&en=<%=en%>"><%=k %></a>]
 	<%}%>
 	<%
 	if(up == true){%>

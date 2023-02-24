@@ -18,7 +18,7 @@
 	<h2><a href="_06_deleteBoardpro.jsp">전체 게시글 삭제하기</a></h2>
 	<h2><a href="_04_addBoard.jsp">게시글 추가하기</a></h2>
 	<hr style="background-color: black; width: 100%">
-	<h2><a <%if(boardDAO.getinstance().getAllBoardArray().size() != 0){%>href="_07_boardListPaging.jsp?sn=<%=1%>&en=<%=1%>"<%}else{%>
-	        href="_00_main.jsp"<%} %>>페이징게시판</a></h2>
+	<h2><a href="_07_boardListPaging.jsp?sn=<%=1%>&en=<%=1%>">페이징게시판</a></h2>
+
 </body>
 </html>

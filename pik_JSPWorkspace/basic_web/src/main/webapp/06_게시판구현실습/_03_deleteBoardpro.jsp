@@ -16,7 +16,7 @@
 	
 	boardDAO.getinstance().deleteBoard(index);
 	if(stat == 2){	
-		response.sendRedirect("_07_boardListPaging.jsp?sn="+sn+"en="+en);	
+		response.sendRedirect("_07_boardListPaging.jsp?sn="+sn+"&en="+en);	
 	}else{
 	response.sendRedirect("_01_boardList.jsp");	
 	}
