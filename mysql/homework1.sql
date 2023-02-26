@@ -1,6 +1,5 @@
 use webtoon;
 
-
 # [문제 01] notice 테이블에서 게시글 종류가 서비스 공지인 것만 출력하시오.
 #           단, 등록일이 최신인 순으로 정렬하여 출력하시오.
 select * from notice;
@@ -31,6 +30,40 @@ select sum(mp_buyToon) from mypage where mp_id = 'asd';
 # [문제 09] mypage 테이블에서 웹툰 총 구매 가격이 500원 이상 인 
 #           회원의 아이디와 가격을 출력하시오.
 select mp_id,sum(mp_buyToon) from mypage group by mp_id having sum(mp_buyToon) >= 500; 
+
+# [문제 10] mypage 테이블에서 토요일 웹툰을 산 회원 목록과 웹툰이름을 출력하시오.
+select m.mp_id , t.t_title from mypage m , toon t
+where dayofweek(t.t_regDate) = 7 and t.t_title = m.mp_favorite; 
+
+# [문제 11] mypage 테이블에서 회원당 평균 소비량을 출력하시오.
+select mp_id, avg(mp_buyToon) from mypage group by mp_id;
+
+# [문제 12] member 테이블에서 회원 중 20대인 회원의 수를 출력하시오.
+select count(m_id)as 20대  from member where FLOOR(m_age/10) = 2;
+
+# [문제 13] member 테이블에서 회원 중에 남자회원의 총 수와 여자회원의 총 수를 출력하시오.
+select m_gender,count(m_gender) from member group by (m_gender);
+
+# [문제 14] member 테이블에서 회원 나이순으로 내림차순 정렬하여 출력하시오.
+select * from member order by m_age desc;
+
+# [문제 15] 오래된 회원순으로 정렬(가입일자 순으로 오름차순 정렬)
+select * from member order by m_regDate ;
+
+# [문제 16] qna 테이블에서 작성자가 'qwer'인 게시글 정보를 출력하시오.
+select * from qna where q_id ='qwer';
+
+# [문제 17] qna 게시글 제목에 '오류'가 들어가는 게시물의 총 개수를 출력하시오.
+select * from qna where q_title like '%오류%';
+# [문제 18] qna 테이블에서 회원별 게시글 개수 출력하시오.
+select q_id, count(*) as '게시글개수' from qna group by q_id;
+
+
+
+
+
+
+
 
 
 
