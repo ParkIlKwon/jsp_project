@@ -1,4 +1,4 @@
-<%@page import="basic.boardDAO"%>
+<%@page import="basic.boardDAO2"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -10,16 +10,16 @@
 <body>
 	<%
 	int stat = Integer.parseInt(request.getParameter("stat"));
-	int index = Integer.parseInt(request.getParameter("index"));
-	int sn = Integer.parseInt(request.getParameter("sn"));
-	int en = Integer.parseInt(request.getParameter("en"));
-	
-	boardDAO.getinstance().deleteBoard(index);
-	if(stat == 2){	
-		response.sendRedirect("_07_boardListPaging.jsp?sn="+sn+"&en="+en);	
-	}else{
-	response.sendRedirect("_01_boardList.jsp");	
-	}
+		int index = Integer.parseInt(request.getParameter("index"));
+		int sn = Integer.parseInt(request.getParameter("sn"));
+		int en = Integer.parseInt(request.getParameter("en"));
+		
+		boardDAO2.getinstance().deleteBoard(index);
+		if(stat == 2){	
+			response.sendRedirect("_07_boardListPaging.jsp?sn="+sn+"&en="+en);	
+		}else{
+		response.sendRedirect("_01_boardList.jsp");	
+		}
 	%>
 </body>
 </html>

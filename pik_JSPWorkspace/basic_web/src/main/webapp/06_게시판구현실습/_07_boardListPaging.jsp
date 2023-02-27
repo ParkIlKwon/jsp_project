@@ -1,6 +1,6 @@
 <%@page import="basic.board"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="basic.boardDAO"%>
+<%@page import="basic.boardDAO2"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -11,14 +11,13 @@
 </head>
 <body>
 	<%
-	ArrayList<board>boardArray = boardDAO.getinstance().getAllBoardArray();
-	int totalBoardCnt = boardArray.size();
-	int sn = 0;
-	int en = 0;
+	ArrayList<board>boardArray = boardDAO2.getinstance().getAllBoardArray();
+		int totalBoardCnt = boardArray.size();
+		int sn = 0;
+		int en = 0;
 
-	sn = Integer.parseInt(request.getParameter("sn"));
-	en = Integer.parseInt(request.getParameter("en"));
-	
+		sn = Integer.parseInt(request.getParameter("sn"));
+		en = Integer.parseInt(request.getParameter("en"));
 	%>
 	<h1>게시글 페이징</h1>
 	<h3 id="boardcnt">전체 게시글 수: <%=totalBoardCnt %></h3>

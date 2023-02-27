@@ -1,4 +1,4 @@
-<%@page import="basic.boardDAO"%>
+<%@page import="basic.boardDAO2"%>
 <%@page import="basic.board"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -11,7 +11,7 @@
 <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <%
-	ArrayList<board>boardArr = boardDAO.getinstance().getAllBoardArray();
+ArrayList<board>boardArr = boardDAO2.getinstance().getAllBoardArray();
 %>
 <body>
 	<h2>전체 게시글 수 : <%=boardArr.size()%>  개</h2>

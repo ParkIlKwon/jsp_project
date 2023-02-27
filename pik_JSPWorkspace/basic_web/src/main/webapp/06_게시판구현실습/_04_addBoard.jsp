@@ -1,4 +1,4 @@
-<%@page import="basic.boardDAO"%>
+<%@page import="basic.boardDAO2"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -10,8 +10,7 @@
 <body>
 	<h1>게시글 추가하기</h1>
 	<%
-	int number = boardDAO.getinstance().getNumber();
-	
+	int number = boardDAO2.getinstance().getNumber();
 	%>
 	<form action="_04_addBoardpro.jsp" method="post">
 	<table border="1">

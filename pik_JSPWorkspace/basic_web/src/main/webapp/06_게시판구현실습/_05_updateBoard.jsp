@@ -1,4 +1,4 @@
-<%@page import="basic.boardDAO"%>
+<%@page import="basic.boardDAO2"%>
 <%@page import="basic.board"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -11,7 +11,7 @@
 <body>
 	<%
 	int index = Integer.parseInt(request.getParameter("index"));
-	board b = boardDAO.getinstance().getSelectiveBoardArray(index);
+		board b = boardDAO2.getinstance().getSelectiveBoardArray(index);
 	%>
 	<h1>게시글 수정하기</h1>
 	<form action="_05_updateBoardpro.jsp?index=<%=index%>" method="post">

@@ -1,4 +1,4 @@
-<%@page import="basic.boardDAO"%>
+<%@page import="basic.boardDAO2"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -9,8 +9,8 @@
 </head>
 <body>
 	<%
-	boardDAO.getinstance().deleteAllBoard();
-	response.sendRedirect("_00_main.jsp");
+	boardDAO2.getinstance().deleteAllBoard();
+		response.sendRedirect("_00_main.jsp");
 	%>
 </body>
 </html>
