@@ -1,6 +1,6 @@
 <%@page import="basic.board"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="basic.boardDAO2"%>
+<%@page import="basic.boardDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -11,7 +11,7 @@
 </head>
 <body>
 	<%
-	ArrayList<board>boardArray = boardDAO2.getinstance().getAllBoardArray();
+	ArrayList<board>boardArray = boardDAO.getinstance().getAllBoardArray();
 		int totalBoardCnt = boardArray.size();
 		int sn = 0;
 		int en = 0;

@@ -26,3 +26,6 @@ delete from board;
 drop table board;
 
 select max(no) from board;
+select * from board;
+
+update board set subject='작성자22' , contents='ㄹㅇㅁㄻㅇㄴ' where no = 2;

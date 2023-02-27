@@ -97,7 +97,6 @@ public class boardDAO {
 	}
 	
 	
-	
 	public void dbClose() {
 		  try { 
 		   if(rs!=null) rs.close();
@@ -155,20 +154,43 @@ public class boardDAO {
 		}
 		return cnt;
 	}
-//	
+
 	public board getSelectiveBoardArray(int index) {
 		return getAllBoardArray().get(index);
 	}
+	
+	public int fixBoardBody(board b) {
+		//subject,contents
+		String sql = "update board set subject=? , contents=? where no = ?";
+		getConnection();
+		int cnt = -1;
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, b.getTitle());
+			ps.setString(2, b.getBody());
+			ps.setInt(3, b.getId());
+			
+			cnt = ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			dbClose();
+		}
+		return cnt ;
+	}
 //	
-//	public void fixBoardBody(int index, board b) {
-//		boardArray.set(index, b);
-//	}
+	public int deleteAllBoard() {
+		String sql = "delete from board;";
+		getConnection();
+		int cnt = -1;
+		try {
+			ps = conn.prepareStatement(sql);
+			cnt = ps.executeUpdate();
+		} catch (Exception e) {
+			dbClose();
+		}
+		return cnt;
+	}
 //	
-//	public void deleteAllBoard() {
-//		boardArray.clear();
-//	}
-//	
-//	public void addBoard(board b) {
-//		boardArray.add(b);
-//	}
+
 }

@@ -1,4 +1,4 @@
-<%@page import="basic.boardDAO2"%>
+<%@page import="basic.boardDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -9,7 +9,7 @@
 </head>
 <body>
 	<%
-	boardDAO2.getinstance().addDummyBoardArray();
+	boardDAO.getinstance().addDummyBoardArray();
 		response.sendRedirect("_00_main.jsp");
 	%>
 		
