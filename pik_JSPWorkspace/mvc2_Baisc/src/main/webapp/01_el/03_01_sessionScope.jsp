@@ -19,7 +19,7 @@
 		session.setAttribute("name2", "이순신");
 	%>  	
   	${name1 } <!-- request 것이 우선순위로 적용된다. -->
-  	${sessionScope.name1 }
+  	${sessionScope.name1 } <!-- 이름이 겹치면 이런식으로.  -->
   	${name2 }
   	
   	
