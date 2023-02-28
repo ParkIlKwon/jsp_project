@@ -12,7 +12,6 @@ public class MemberDAO {
 		return instance;
 	}
 		
-	
 private Connection conn;
 private PreparedStatement ps;
 private ResultSet rs;
@@ -126,7 +125,6 @@ public int getMemberNo(String id) {
 }
 
 
-
 public int memberDelete(String id) {
 	 String SQL="delete from member where id=?";
 	 getConnect();
@@ -142,7 +140,6 @@ public int memberDelete(String id) {
 	}	   
 	 return cnt;
 }//memberDelete
-
 
 public MemberVO memberContent(int num) {
 	   String SQL="select * from member where num=?";
