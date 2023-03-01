@@ -38,27 +38,22 @@ public class MemberDAO {
 	}
 	
 	public ArrayList<Member> getAllMember(){
-		String sql = "select * from board";
+		String sql = "select * from member";
 		ArrayList<Member>mlist = new ArrayList<Member>();
 		getConnection();
 		
-		String id;
-		String pw;
-		String name;
-		String email;
-		String gender;
-		String hobby;
 		try {
 			ps = conn.prepareStatement(sql);
 			rs = ps.executeQuery();
 			while (rs.next()) {
 				Member m = new Member();
+				m.setNo(rs.getInt("no"));
 				m.setId(rs.getString("id"));
-				m.setId(rs.getString("pw"));
-				m.setId(rs.getString("name"));
-				m.setId(rs.getString("email"));
-				m.setId(rs.getString("hender"));
-				m.setId(rs.getString("hobby"));
+				m.setPw(rs.getString("pw"));
+				m.setName(rs.getString("name"));
+				m.setEmail(rs.getString("email"));
+				m.setGender(rs.getString("gender"));
+				m.setHobby(rs.getString("hobby"));
 				mlist.add(m);
 			}
 		} catch (Exception e) {
@@ -67,6 +62,63 @@ public class MemberDAO {
 			dbClose();
 		}
 		return mlist;
+	}
+	
+	public Member getSelectiveMember(int index) {
+		ArrayList<Member> list = getAllMember();
+		return list.get(index);
+	}
+	
+	
+	public void DeleteSelectiveMember(int index) {
+		String sql = "delete from member where no = ?";
+		
+		getConnection();
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, index);
+			int cnt = ps.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			dbClose();
+		}
+	}
+	
+	public void addMember(Member m) {
+		String sql = "insert into member(id,pw,name,email,gender,hobby) values(?,?,?,?,?,?);";
+		getConnection();
+		int cnt = -1;
+		
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, m.getId());
+			ps.setString(2, m.getPw());
+			ps.setString(3, m.getName());
+			ps.setString(4, m.getEmail());
+			ps.setString(5, m.getGender());
+			ps.setString(6, m.getHobby());
+			cnt = ps.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			dbClose();
+		}
+	}
+	
+	public int CheckLog(String id, String pw, int pos) {
+		ArrayList<Member>temp = getAllMember();
+		
+		for (int i = 0; i < temp.size(); i++) {
+			if (pos == 1 && temp.get(i).getId().equals(id)) {
+				return i;
+			}else if (pos == 2 && temp.get(i).getId().equals(id) &&
+					temp.get(i).getPw().equals(pw)) {
+				return i;
+			}
+		}
+		
+		return -1;
 	}
 	
 	public void dbClose() {

@@ -12,6 +12,8 @@ create table member(
 );
 
 select * from member;
+select * from member;
+
 
 insert into member(id,pw,name,email,gender,hobby) values('test1','1111','테스트1','test1@test.com','남성','놀기');
 insert into member(id,pw,name,email,gender,hobby) values('test2','1234','테스트2','test2@test.com','남성','컴퓨터');

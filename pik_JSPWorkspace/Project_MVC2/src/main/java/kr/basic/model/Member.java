@@ -2,6 +2,7 @@ package kr.basic.model;
 
 public class Member {
 	
+	int no;
 	String id;
 	String pw;
 	String name;
@@ -11,8 +12,9 @@ public class Member {
 	
 	public Member(){};
 	
-	public Member(String id, String pw, String name, String email, String gender, String hobby) {
+	public Member(int no,String id, String pw, String name, String email, String gender, String hobby) {
 		super();
+		this.no = no;
 		this.id = id;
 		this.pw = pw;
 		this.name = name;
@@ -21,6 +23,14 @@ public class Member {
 		this.hobby = hobby;
 	}
 	
+	public int getNo() {
+		return no;
+	}
+
+	public void setNo(int no) {
+		this.no = no;
+	}
+
 	public String getId() {
 		return id;
 	}

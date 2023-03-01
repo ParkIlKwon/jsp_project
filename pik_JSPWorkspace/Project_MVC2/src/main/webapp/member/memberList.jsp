@@ -1,3 +1,4 @@
+<%@page import="kr.basic.model.MemberDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
    
@@ -8,6 +9,9 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+	<%
+	int info = (int)session.getAttribute("log");
+	%>
 <body>
 
 	<h1>회원목록</h1>
@@ -24,8 +28,21 @@
 	
 	<c:forEach var="m" items="${list}">
 	<tr>
-	<td><a href="${ctx}/memberContent.do?num=${m.num}">${m.id}</a></td>
+	<td>${m.id}</td>
+	<td>${m.pw}</td>
+	<td>${m.name}</td>
+	<td>${m.email}</td>
+	<td>${m.gender}</td>
+	<td>${m.hobby}</td>
+	
+	<%
+	if(info != -1 && MemberDAO.getInstance().getSelectiveMember(info).getId() == "admin"){ 
+	%>
+	<td><input type="button" onclick=
+	"location.href='${ctx}/memberDeleteController.do?index=${m.no}'" value="삭제하기"></td>
 
+	<%-- <td><a href="${ctx}/memberContent.do?num=${m.num}">${m.id}</a></td> --%>
+	<%} %>
 	</tr>
 	</c:forEach>
 	</table>

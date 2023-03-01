@@ -2,6 +2,11 @@
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var = "ctx" value="${pageContext.request.contextPath}"/>
+<%
+if(session.getAttribute("log") == null){
+	session.setAttribute("log", -1);
+}
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,15 +18,18 @@
 <body>
 	<header>
 		<div class="row h-40">
-		<div class="col-3" onclick="location.href='memberList.jsp'">회원목록</div>
-		<div class="col-3" onclick="location.href='memberAcount.jsp'">회원가입</div>
+		<div class="col-3" onclick="location.href='${ctx}/memberList.do'">회원목록</div>
+		<div class="col-3" onclick="location.href='member/memberAcount.jsp'">회원가입</div>
 		
-		<div class="col-3">로그인</div>
-		<div class="col-3">로그아웃</div>
-		
+		<%
+		int log = (int)session.getAttribute("log");
+		if(log == -1){
+		%><div class="col-3" onclick="location.href='member/MemberLogin.jsp'">로그인</div>
+		<%}else{ %>
+		<div class="col-3" onclick="location.href='${ctx}/MemberLogoutController.do">로그아웃</div>
+		<%} %>
 		</div>
 	</header>
-	
 	
 	
 </body>
