@@ -1,4 +1,5 @@
 @charset "UTF-8";
+
 body{
 	display: flex;
 	align-items: center;
@@ -6,6 +7,13 @@ body{
 	flex-direction: column;
 	text-align: center;
 }
-a{
-	margin-right: 5px;
+
+#homebtn{
+	margin-top: 20px;
+}
+
+#boardcnt{
+	background-color:gray;
+	display: flex;
+	justify-content: flex-start;
 }

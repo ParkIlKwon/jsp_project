@@ -17,5 +17,5 @@ session.setAttribute("log", log);
 
 //세션 setAttribute 해주면 30분동안 서버에 저장된다.
 
-response.sendRedirect("02_main.jsp");
+response.sendRedirect("header.jsp");
 %>

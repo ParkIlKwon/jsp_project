@@ -2,17 +2,18 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<link rel="stylesheet" type="text/css" href="NewFile.css">
+<link rel="stylesheet" type="text/css" href="style.css">
 <head>
 <meta charset="UTF-8">
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.Arrays"%>
+<%@ include file= "header.jsp" %>
 
 <title>Insert title here</title>
 </head>
 <body>
-		<table border="1">
+		<table class=" py-10 table table-bordered" border="1">
 	<tr><td>아이디</td><td>패스워드</td><td>이름</td><td>성별</td><td>삭제</td>
 	</tr>
 	<%
