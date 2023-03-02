@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
    
-<%@ include file="header.jsp"  %>
+<%@ include file="../../header.jsp"  %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,10 +21,17 @@
     <td>취미</td>
     <td>삭제</td>
   </tr>
-	
 	<c:forEach var="m" items="${list}">
 	<tr>
-	<td><a href="${ctx}/memberContent.do?num=${m.num}">${m.id}</a></td>
+	<td>${m.id}</td>
+	<td>${m.pw}</td>
+	<td>${m.name}</td>
+	<td>${m.email}</td>
+	<td>${m.gender}</td>
+	<td>${m.hobby}</td>
+	<td><input type="button" value="삭제하기"
+	onclick="location.href='${ctx}/memberDelete.do?id=${m.id}'"></td>
+	<%-- <td><a href="${ctx}/memberContent.do?num=${m.num}">${m.id}</a></td> --%>
 
 	</tr>
 	</c:forEach>

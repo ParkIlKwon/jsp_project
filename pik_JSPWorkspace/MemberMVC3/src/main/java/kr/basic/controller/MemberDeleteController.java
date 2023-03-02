@@ -7,19 +7,23 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kr.basic.model.MemberDAO;
 
-public class MemberContentController implements Controller{
-
+public class MemberDeleteController implements Controller{
 
 	@Override
 	public String requestHandler(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String ctx = request.getContextPath();
-		if(request.getParameter("index") == null) {
-			//response.sendRedirect(ctx+"/memberList.do");
+		
+		String ctx= request.getContextPath();
+		System.out.println("ctx" + ctx);
+		int cnt=MemberDAO.getInstance().memberDelete(request.getParameter("id"));
+		
+		if(cnt>0) {
+			return "redirect:"+ctx+"/memberList.do";
+	
 		}else {
-			
+			throw new ServletException("not delete");	
 		}
-		return null;
 	}
 }

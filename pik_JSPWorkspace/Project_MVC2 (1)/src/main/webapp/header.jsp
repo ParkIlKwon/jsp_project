@@ -13,15 +13,14 @@
 <body>
 	<header>
 		<div class="row h-40">
-		<div class="col-3" onclick="location.href='memberList.jsp'">회원목록</div>
-		<div class="col-3" onclick="location.href='memberAcount.jsp'">회원가입</div>
+		<div class="col-3" onclick="location.href='${ctx}/MemberList.do'">회원목록</div>
+		<div class="col-3" onclick="location.href='${ctx}/MemberAccount.do'">회원가입</div>
 		
 		<div class="col-3">로그인</div>
 		<div class="col-3">로그아웃</div>
 		
 		</div>
 	</header>
-	
 	
 	
 </body>
