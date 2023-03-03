@@ -109,6 +109,39 @@ public class MemberDAO {
 		
 	}
 	
+	public boolean isValidCheck(String id) {
+		String sql = "select * from member where id = ?";
+		getConnection();
+		
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, id);
+			ps.executeQuery();
+			
+			return rs.next();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}   
+	
+	public int checkLog(String id, String pw, int p) {
+		ArrayList<Member> list = getAllMember();
+		if( p == 1) {
+			for (int i = 0; i < list.size(); i++) {
+				if(list.get(i).getId().equals(id) &&
+						list.get(i).getPw().equals(pw)) {
+				return i;
+				}
+			}
+		}else {
+			
+			
+		}
+		return -1;
+	}
+	
 	
 	public void dbClose() {
 		  try { 
@@ -118,6 +151,7 @@ public class MemberDAO {
 		  }catch(Exception e) {
 			  e.printStackTrace();
 		  }
-	}   
+	}
+
 	
 }

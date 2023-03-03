@@ -38,8 +38,8 @@ public class MemberAccountController implements Controller{
 		Member m = new Member(id,pw,name,email,gender,hobby);
 		int check =  MemberDAO.getInstance().addMember(m);
 		System.out.println(check);
-		
-		return "redirect:"+"memberList.do";
+		String ctx = request.getContextPath();
+		return "redirect:"+ ctx + "/memberList.do";
 	}
 
 	

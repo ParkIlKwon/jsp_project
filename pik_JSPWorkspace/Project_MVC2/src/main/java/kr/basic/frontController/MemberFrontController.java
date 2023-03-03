@@ -36,9 +36,7 @@ public class MemberFrontController extends HttpServlet {
 		if(nextPage!=null) {
 			if(nextPage.indexOf("redirect:")!=-1) {
 				//            redirect:/MemberMVC3/memberList.do
-				RequestDispatcher rd=request.getRequestDispatcher(nextPage.split(":")[1]); // forward
-				rd.forward(request, response);
-				
+				response.sendRedirect(nextPage.split(":")[1]);
 			}else {
 				RequestDispatcher rd=request.getRequestDispatcher(viewResolve.makeView(nextPage)); // forward
 				rd.forward(request, response);

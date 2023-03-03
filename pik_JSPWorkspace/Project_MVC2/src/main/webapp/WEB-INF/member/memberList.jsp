@@ -1,3 +1,4 @@
+<%@page import="kr.basic.model.MemberDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
    
@@ -12,6 +13,11 @@
 <body>
 
 	<h1>회원목록</h1>
+	<% if(log != -1){
+		currentName = MemberDAO.getInstance().getAllMember().get(log).getName();
+		%>
+	<h3>안녕하세요 : <%=currentName%> 님</h3>
+	<%} %>
 	<table class="table">
 	  <tr>
     <td>아이디</td>
@@ -30,10 +36,11 @@
 	<td>${m.email}</td>
 	<td>${m.gender}</td>
 	<td>${m.hobby}</td>
+	<%if(currentName.equals("admin")){ %>
 	<td><input type="button" value="삭제하기"
 	onclick="location.href='${ctx}/memberDelete.do?id=${m.id}'"></td>
 	<%-- <td><a href="${ctx}/memberContent.do?num=${m.num}">${m.id}</a></td> --%>
-
+	<%} %>
 	</tr>
 	</c:forEach>
 	</table>

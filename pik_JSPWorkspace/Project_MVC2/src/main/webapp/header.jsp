@@ -10,9 +10,10 @@
 <title>Insert title here</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="${ctx}/css/style.css">
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
 </head>
 <body>
- <%
+ <% String currentName = "";
 	if(session.getAttribute("log") == null){
 		session.setAttribute("log", -1);
 	}
@@ -28,12 +29,12 @@
 		<%if(log == -1){ %>
 		<div class="col-3" onclick="location.href='${ctx}/memberLogin.do'">로그인</div>
 	<%}else{ %>
-		<div class="col-3">로그아웃</div>
+		<div class="col-3" onclick="location.href='${ctx}/memberLogout.do'">로그아웃</div>
+		<div class="col-3" onclick="location.href='${ctx}/boardMain.do'">게시판</div>
 		<%} %>
 		</div>
 
 	</header>
-	
-	
+		
 </body>
 </html>

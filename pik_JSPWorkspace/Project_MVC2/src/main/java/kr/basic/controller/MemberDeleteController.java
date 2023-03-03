@@ -17,7 +17,7 @@ public class MemberDeleteController implements Controller{
 		MemberDAO.getInstance().deleteMember(request.getParameter("id"));
 		String ctx=request.getContextPath();
 		System.out.println("test= " + ctx);
-		return "redirect:"+"/memberList.do";
+		return "redirect:"+ctx+"/memberList.do";
 	}
 	
 }

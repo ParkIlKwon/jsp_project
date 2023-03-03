@@ -9,11 +9,11 @@
 </head>
 <body>
 	<h1>로그인 폼</h1>
-	<form action="">
+	<form action="${ctx}/memberLogin.do">
 	<table class="table" border="1">
 	<tr><th>I D</th><td><input type="text" name="id"></td></tr>
 	<tr><th>P W</th><td><input type="text" name="pw"></td></tr>
-	<tr><td><input class="btn btn-primary" type="button" value="로그인."></td></tr>
+	<tr><td><input class="btn btn-primary" type="submit" value="로그인."></td></tr>
 	
 	</table>
 	</form>

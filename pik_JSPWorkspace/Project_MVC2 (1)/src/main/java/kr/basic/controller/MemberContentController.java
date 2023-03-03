@@ -8,9 +8,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-public class MemberContentController extends HttpServlet {
+//public class MemberContentController extends HttpServlet {
 
-	@Override
+	//@Override
 /*	protected String service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String ctx = request.getContextPath();
 		if(request.getParameter("index") == null) {
@@ -19,6 +19,7 @@ public class MemberContentController extends HttpServlet {
 		}else {
 			
 		}*/
-		
+/*		
 	}
 }
+*/
