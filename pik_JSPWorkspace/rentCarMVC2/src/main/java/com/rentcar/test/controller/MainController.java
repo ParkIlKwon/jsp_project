@@ -1,4 +1,4 @@
-package kr.rentcar.controller;
+package com.rentcar.test.controller;
 
 import java.io.IOException;
 
@@ -7,14 +7,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-public class ReserveCarController implements Controller{
+import com.rentcar.test.frontController.ViewResolver;
+
+public class MainController implements Controller {
 
 	@Override
 	public String requestHandler(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		HttpSession session = request.getSession();
-		session.setAttribute("cmenu", "ReserveCarMain.jsp");
-		return "Main";
+		request.setCharacterEncoding("utf-8");
+		String center ="main";
+		if(request.getParameter("center")!= null) {
+			    center = request.getParameter("center");   
+		}
+		
+		return center;
 	}
 
 }
