@@ -13,8 +13,7 @@ public class MemberDAO {
 	PreparedStatement ps;
 	ResultSet rs; 
 	
-	private MemberDAO() {
-	}
+	private MemberDAO() {}
 	static private MemberDAO instanse = new MemberDAO();
 	static public MemberDAO getInstance() {
 		return instanse;

@@ -1,4 +1,4 @@
-package kr.basic.frontController;
+package kr.rentcar.frontcontroller;
 
 import java.io.IOException;
 
@@ -9,7 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.basic.controller.Controller;
+import kr.rentcar.controller.Controller;
+
 
 
 @WebServlet("*.do")

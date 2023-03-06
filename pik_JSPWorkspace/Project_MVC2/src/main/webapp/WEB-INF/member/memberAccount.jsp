@@ -37,7 +37,6 @@
 			alert("사용불가능한 id 입니다.");
 			check = -1;
 		}
-		
 	}
 	
 	function checkForm(form){
