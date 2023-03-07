@@ -1,15 +1,7 @@
 package kr.rentcar.frontcontroller;
 
 import java.util.HashMap;
-
-import kr.rentcar.controller.Controller;
-import kr.rentcar.controller.MainController;
-import kr.rentcar.controller.ReserveCarController;
-import kr.rentcar.controller.ReserveCarPro;
-import kr.rentcar.controller.MemberLogin;
-import kr.rentcar.controller.MemberLogout;
-import kr.rentcar.controller.RentCarProController;
-
+import kr.rentcar.controller.*;
 
 public class HandlerMapping {
 	private HashMap<String, Controller>mapp;
@@ -21,6 +13,7 @@ public class HandlerMapping {
 		mapp.put("/carReserveMain.do",new ReserveCarController());
 		mapp.put("/ReserveCarPro.do",new ReserveCarPro());
 		mapp.put("/RentCarProController.do",new RentCarProController());
+		mapp.put("/ApplyRentCarController.do",new ApplyRentCarController());
 	}
 	public Controller getController(String k) {
 		return mapp.get(k);
