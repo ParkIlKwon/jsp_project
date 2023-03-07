@@ -7,20 +7,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-public class MainController implements Controller{
+import com.rentcar.test.car.CarDAO;
+
+public class ReserveCarPro implements Controller {
 
 	@Override
 	public String requestHandler(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
-
-		if(session.getAttribute("cmenu") == null) {
-			session.setAttribute("cmenu","center");
-		}else {
-			String cos = request.getParameter("cos");
-			System.out.println(cos);
-			session.setAttribute("cmenu",cos);
-		}
+		int scar = Integer.parseInt(request.getParameter("select"));
+		session.setAttribute("scar",CarDAO.getInstance().findCar(scar));    
+		session.setAttribute("cmenu", "ReserveCarPro.jsp");
 		return "Main";
 	}
+
 }

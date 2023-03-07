@@ -94,6 +94,67 @@ public class CarDAO {
 		return clist;
 	}
 	
+	public ArrayList<CarVO>getbyCartype(int type){
+		String sql = "SELECT * FROM rentcar where category = ?";
+		ArrayList<CarVO>clist = new ArrayList<CarVO>();
+		getConnection();
+		
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, type);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				CarVO c = new CarVO();
+				c.setNo(rs.getInt("no"));
+				c.setName(rs.getString("name"));
+				c.setCategory(rs.getInt("category"));
+				c.setPrice(rs.getInt("price"));
+				c.setUsepeople(rs.getInt("usepeople"));
+				c.setCompany(rs.getString("company"));
+				c.setImg(rs.getString("img"));
+				c.setInfo(rs.getString("info"));
+				
+				clist.add(c);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			dbClose();
+		}
+		return clist;
+	}
+	
+	public ArrayList<CarVO>findCar(int num){
+		String sql = "SELECT * FROM rentcar where no = ?";
+		ArrayList<CarVO>cl = new ArrayList<CarVO>();
+		getConnection();
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, num);
+			rs = ps.executeQuery();
+			CarVO c = new CarVO();
+			if(rs.next()) {
+				c.setNo(rs.getInt("no"));
+				c.setName(rs.getString("name"));
+				c.setCategory(rs.getInt("category"));
+				c.setPrice(rs.getInt("price"));
+				c.setUsepeople(rs.getInt("usepeople"));
+				c.setCompany(rs.getString("company"));
+				c.setImg(rs.getString("img"));
+				c.setInfo(rs.getString("info"));
+				 
+				cl.add(c);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			dbClose();
+		}
+		return cl;
+	}
+	
+	
 	
 	public void dbClose() {
 		  try { 
@@ -103,6 +164,13 @@ public class CarDAO {
 		  }catch(Exception e) {
 			  e.printStackTrace();
 		  }
+	}
+
+	public int CountCar(int count) {
+		if(count >= 1) {
+			return 1;
+		}
+		return 0;
 	}
 	
 }

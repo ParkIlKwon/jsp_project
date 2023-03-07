@@ -25,10 +25,11 @@ public class MemberLogin implements Controller{
 			if(!MemberDAO.getInstance().idcheck(id, pw).equals("")) {
 			session.setAttribute("cmenu", "center.jsp");
 			session.setAttribute("log", id);
+			int num = 1;
+			response.getWriter().print(num);
 			}
-			return "Main";
-
+			
+			return null;
 		}
-	
 	}
 }
