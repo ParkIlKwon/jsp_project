@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<body> 
+<body style="padding:30px"> 
 	
  	<c:if test="${cmenu eq null}">
 	<c:set var="cmenu" value="center.jsp"></c:set>

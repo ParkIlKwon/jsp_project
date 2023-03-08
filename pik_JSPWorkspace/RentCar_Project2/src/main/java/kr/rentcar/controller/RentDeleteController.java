@@ -7,21 +7,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.rentcar.test.car.CarDAO;
+import kr.rentcar.model.CarReserveDAO;
 
-public class RentCarProController implements Controller{
+public class RentDeleteController implements Controller{
 
 	@Override
 	public String requestHandler(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		int count = Integer.parseInt(request.getParameter("count"));
 		HttpSession session = request.getSession();
-		int qty = Integer.parseInt(request.getParameter("qty"));
-		int num = CarDAO.getInstance().CountCar(count,qty);
+		session.setAttribute("cmenu","ReserveCheck.jsp");
+		int number = Integer.parseInt(request.getParameter("no"));
+		System.out.println(CarReserveDAO.getInstance().getQTY(number));
 		
-		session.setAttribute("cnt", count);
+		CarReserveDAO.getInstance().deletelist(number);
 		
-		response.getWriter().print(num);
-		return null;
+		return "Main";
 	}
+
 }

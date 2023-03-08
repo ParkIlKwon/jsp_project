@@ -14,6 +14,9 @@ public class HandlerMapping {
 		mapp.put("/ReserveCarPro.do",new ReserveCarPro());
 		mapp.put("/RentCarProController.do",new RentCarProController());
 		mapp.put("/ApplyRentCarController.do",new ApplyRentCarController());
+		mapp.put("/carReserveCheck.do",new ReserveCheckController());
+		mapp.put("/rentDelet.do",new RentDeleteController());
+		
 	}
 	public Controller getController(String k) {
 		return mapp.get(k);

@@ -166,8 +166,8 @@ public class CarDAO {
 		  }
 	}
 
-	public int CountCar(int count) {
-		if(count >= 1) {
+	public int CountCar(int count,int qty) {
+		if(count <= qty) {
 			return 1;
 		}
 		return 0;

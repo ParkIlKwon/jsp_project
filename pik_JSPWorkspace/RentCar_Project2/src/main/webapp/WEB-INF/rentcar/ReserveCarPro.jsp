@@ -13,7 +13,7 @@
 </head>
 <script type="text/javascript">
 
-function rentdo() {
+function rentdo(qty) {
 	let count=$("#count").val();
 	if(!$.trim(count)){
 		alert("수량을 입력하세요.");
@@ -21,7 +21,7 @@ function rentdo() {
 		$.ajax({
 			type : "POST",
 			url : "${ctx}/RentCarProController.do",
-			data : {"count":count},
+			data : {"count":count,"qty":qty},
 			success : function (data) {
 				if(data==1){
 					window.location.href = "${ctx}/main.do?cos=${url}";
@@ -36,8 +36,9 @@ function rentdo() {
 </script>
 <body>
 	<h1 align="center">수량선택하기</h1>
+	<div style="min-width: 400px;">
 	<c:forEach var = "c" items="${scar}">
-
+	
 	<div class="card">
 	<div class="card mb-3" style="max-width: 1000px;">
   <div class="row g-0">
@@ -48,15 +49,15 @@ function rentdo() {
       <div class="card-body"  style="background-color:rgb(204,255,153);">
         <h5 class="card-title">${c.name}</h5>
         <p class="card-text">해당차량의 구매 대수를 선택하시고 아래 버튼을 눌러주세요.</p>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        <p class="card-text"><small class="text-muted">${c.usepeople} cars left for shop</small></p>
       </div>
       <input type="number" placeholder="수량넣기" id="count" style="margin: 20px"/>
-      <button class="btn btn-primary" onclick="rentdo()">렌트하기 !</button>
+      <button class="btn btn-primary" onclick="rentdo('${c.usepeople}')">렌트하기 !</button>
     </div>
   </div>
 </div>
 	</div>
 	</c:forEach>
-	
+	</div>
 </body>
 </html>

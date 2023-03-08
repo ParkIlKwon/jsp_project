@@ -11,6 +11,21 @@
 <link rel="stylesheet" type="text/css" href="${ctx}/css/style.css">
 <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
 </head>
+
+<script type="text/javascript">
+function logcheck(log) {
+	
+	if(log == ""){
+		alert("로그인 후 이용가능한 메뉴입니다.");
+	}else{
+		window.location.href = "${ctx}/carReserveCheck.do";
+	}
+}
+
+
+</script>
+
+
 <body>
 	<table>
 		
@@ -49,7 +64,9 @@
 		<div class="col-2" style="border: white solid 1px;"
       	onclick="location.href='${ctx}/carReserveMain.do'"
         >예약하기</div>
-		<div class="col-2" style="border: white solid 1px;">예약확인</div>
+		<div class="col-2" style="border: white solid 1px;"
+		onclick="logcheck('${log}')"
+		>예약확인</div>
 		<div class="col-2" style="border: white solid 1px;">자유게시판</div>
 		<div class="col-3" style="border: white solid 1px;">이벤트</div>
 		<div class="col-3" style="border: white solid 1px;">고객센터</div>

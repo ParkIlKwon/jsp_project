@@ -1,6 +1,6 @@
 package kr.rentcar.model;
 
-public class CarReserveBean {
+public class CarReserveVO {
 	private int reserve_seq;	
 	private int no;				
 	private String id;
@@ -11,6 +11,22 @@ public class CarReserveBean {
 	private int usewifi;			
 	private int usenavi;
 	private int useseat;
+	
+	
+	public CarReserveVO() {}
+	public CarReserveVO(int no, String id, int qty, int dday, String rday, int usein, int usewifi,
+			int usenavi, int useseat) {
+		super();
+		this.no = no;
+		this.id = id;
+		this.qty = qty;
+		this.dday = dday;
+		this.rday = rday;
+		this.usein = usein;
+		this.usewifi = usewifi;
+		this.usenavi = usenavi;
+		this.useseat = useseat;
+	}
 	
 	public int getReserve_seq() {
 		return reserve_seq;

@@ -8,12 +8,14 @@
 <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
 <head>
 <meta charset="UTF-8">
+<c:set var = "ctx" value="<%=request.getContextPath()%>"/>
 <title>Insert title here</title>
 </head>
 <script type="text/javascript">
 let asset = -1;
 let wifi = -1;
 let baby = -1;
+let nav = -1;
 
 function getFormatDate(date){
     var year = date.getFullYear();              
@@ -32,10 +34,8 @@ function rentCheck(log,cnt) {
 	let A = new Date(date);
 	let B = new Date(today);
 	let dday = (A.getTime() - B.getTime()) / (24 * 60 * 60 * 1000);
-	
 	today = getFormatDate(today);
-	alert(Math.floor(dday));
-	alert(cnt);
+
 	if(asset == -1 || wifi == -1 || baby == -1){
 		alert("미선택지가 존재합니다.");
 	}else if(number == null || number <= 0){
@@ -47,18 +47,18 @@ function rentCheck(log,cnt) {
 	}else{
 		
 		let query = {
-				
+				log,nav,dday,asset,wifi,baby,date,number,cnt
 		}
-		
-/* 		$.ajax({
+	
+ 		$.ajax({
 			type : "POST",
 			url : "${ctx}/ApplyRentCarController.do",
-			data : {"id":id,"pw":pw},
+			data : query,
 			success : function(data) {
-				
+				alert("대여성공 ! 대여까지 " +Math.floor(dday)+"일남았습니다.");
+				window.location.href = "${ctx}/main.do";
 			}
-		}); */
-			
+		}); 
 	}
 }
 
@@ -74,17 +74,21 @@ function changebaby() {
 	baby = $("#baby option:selected").val();
 }
 
+function changenav() {
+	nav = $("#nav option:selected").val();
+}
+
 
 </script>
 
-<body>
+<body style="padding:30px">
 	<h1 align="center">옵션선택</h1>
 	<c:forEach var = "c" items="${scar}">
 	
 	<div class="card mb-3" style="max-width: 1200px;">
   <div class="row g-0">
     <div class="col-md-4">
-       <img class="card shadow-sm border-primary"  alt="" src="image/${c.img}" width="400" height="400" style="margin: 20px">
+       <img class="card shadow-sm border-primary"  alt="" src="image/${c.img}" width="400" height="400" style="margin: 40px">
     </div>
     <div class="col-md-8">
       <div class="card-body">
@@ -95,22 +99,29 @@ function changebaby() {
           대여일   <input type='date' name='rentdate' style="margin-left: 30px" id="date"/><br><br>
          보험적용<select class="form-select" aria-label="Default select example" id="asset" style="width: 200px" onchange="changeAsset()">
   <option selected value=-1>보험적용유무</option>
-  <option value="1">미적용</option>
-  <option value="2">적용(1일1만원)</option>
+  <option value="0">미적용</option>
+  <option value="1">적용(1일1만원)</option>
 </select>
 
 	WiFI적용<select class="form-select" aria-label="Default select example" id="wifi" style="width: 200px" onchange="changewifi()">
   <option selected value=-1>WIFI유무</option>
-  <option value="1">미적용</option>
-  <option value="2">적용옵션1(1일1만원)</option>
-  <option value="3">적용옵션2(1일2만원)</option>
+  <option value="0">미적용</option>
+  <option value="1">적용옵션1(1일1만원)</option>
+  <option value="2">적용옵션2(1일2만원)</option>
 </select>
 	
 		베이비시트적용<select class="form-select" aria-label="Default select example" id="baby" style="width: 200px" onchange="changebaby()">
   <option selected value=-1>시트유무</option>
-  <option value="1">미적용</option>
-  <option value="2">적용(1일1만원)</option>
+  <option value="0">미적용</option>
+  <option value="1">적용(1일1만원)</option>
+</select>
+
+		네비게이션적용<select class="form-select" aria-label="Default select example" id="nav" style="width: 200px" onchange="changenav()">
+  <option selected value=-1>네비유무</option>
+  <option value="0">미적용</option>
+  <option value="1">적용(1일1만원)</option>
 </select><br>
+
 	<button class="btn btn-primary" onclick="rentCheck('${log}','${cnt}')">렌트신청하기</button>
          
         </div>

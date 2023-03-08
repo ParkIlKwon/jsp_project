@@ -26,6 +26,8 @@ public class ReserveCarController implements Controller{
 				session.setAttribute("clist", CarDAO.getInstance().getbyCartype(2));
 			}else if (option == 3) {
 				session.setAttribute("clist", CarDAO.getInstance().getbyCartype(3));
+			}else if (option == 4) {
+				session.setAttribute("clist", CarDAO.getInstance().getAllCars());
 			}
 		}
 		

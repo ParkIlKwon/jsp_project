@@ -1,7 +1,8 @@
 package kr.rentcar.model;
 
-public class CarViewBean {
+public class CarViewVO {
 
+	private int no;
 	private String name;
 	private int price;
 	private String img;
@@ -12,6 +13,7 @@ public class CarViewBean {
 	private int usewifi;
 	private int useseat;
 	private int usenavi;
+	private int daygap;
 	
 	public String getName() {
 		return name;
@@ -73,5 +75,16 @@ public class CarViewBean {
 	public void setUsenavi(int usenavi) {
 		this.usenavi = usenavi;
 	}
-	
+	public int getDaygap() {
+		return daygap;
+	}
+	public void setDaygap(int daygap) {
+		this.daygap = daygap;
+	}
+	public int getNo() {
+		return no;
+	}
+	public void setNo(int no) {
+		this.no = no;
+	}
 }
