@@ -13,21 +13,22 @@
 </head>
 <script type="text/javascript">
 
-function Delete(no){
-		alert(no);
+function Delete(no,qta,seq){
 		$.ajax({
 			type : "POST",
 			url : "${ctx}/rentDelet.do",
-			data : {"no":no},
+			data : {"no":no,"QTA":qta,"seq":seq},
 			success : function(data) {
 				alert("삭제완료");
 				window.location.reload();
 				
 			}
 		}); 
-	
 }
 
+function carinfo() {
+	alert("click");
+}
 
 </script>
 
@@ -46,7 +47,7 @@ function Delete(no){
   <div class="list-group-item list-group-item-action" aria-current="true" style="width: 100%">
    <div class="list-group list-group-horizontal">
     <img class="card shadow-sm border-primary"  alt="" src="image/${car.img}" width="200" height="160">
-      <p style="margin:10px"><strong>${car.name}</strong>  <button class="btn-close" style="margin-left:90%;height:20px" onclick="Delete('${car.no}')"></button>
+      <p style="margin:10px"><strong>${car.name}</strong>  <button class="btn-close" style="margin-left:90%;height:20px" onclick="Delete('${car.no}','${car.qty}','${car.seq}')"></button>
       <br>QTY : ${car.qty}
       <br>RDAY : ${car.rday}
       <br>OPT : Insurance-${car.usein}  WIFI-${car.usewifi} SEAT-${car.useseat} NAV-${car.usenavi} 
@@ -58,13 +59,14 @@ function Delete(no){
       <h5 class="mb-1">신차가격 : ${car.price} 만원</h5>
       <small>렌트카출고까지 day</small>
     </div>
-    <small style="margin-right:30px;">클릭시 상세페이지로 이동합니다.</small>
+    <small style="margin-right:30px;" onclick="carinfo()">클릭시 상세페이지로 이동합니다.</small>
     
   </div>
   <div style="height:10px"></div>
   </c:forEach>
 </div>
 	
+
 	
 </body>
 </html>

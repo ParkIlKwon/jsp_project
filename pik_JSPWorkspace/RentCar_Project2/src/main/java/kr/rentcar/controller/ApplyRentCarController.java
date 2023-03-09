@@ -13,6 +13,8 @@ import com.rentcar.test.car.CarVO;
 import kr.rentcar.model.CarReserveDAO;
 import kr.rentcar.model.CarReserveVO;
 import kr.rentcar.model.CarViewVO;
+import kr.rentcar.model.CardaygapDB;
+import kr.rentcar.model.cardaygapDAO;
 
 public class ApplyRentCarController implements Controller{
 
@@ -22,7 +24,6 @@ public class ApplyRentCarController implements Controller{
 		
 		HttpSession session = request.getSession();
 		session.setAttribute("cmenu","center.jsp");
-		
 		ArrayList<CarVO>clist = (ArrayList<CarVO>) session.getAttribute("scar");
 		String log = request.getParameter("log");
 		int asset = Integer.parseInt(request.getParameter("asset"));
@@ -38,7 +39,10 @@ public class ApplyRentCarController implements Controller{
 		
 		CarReserveVO temp = new CarReserveVO(clist.get(0).getNo(),log,cnt,
 				number,date,asset,wifi,nav,baby);
-		CarReserveDAO.getInstance().cosumeCar(numkey, cnt);
+		int consumeCar=
+		CarReserveDAO.getInstance().cosumeCar(clist.get(0).getNo(),cnt);
+		CarReserveDAO.getInstance().updateCarQTY(clist.get(0).getNo(), consumeCar);
+		
 		CarReserveDAO.getInstance().setReserveCar(temp,numkey);
 		
 		return "Main";

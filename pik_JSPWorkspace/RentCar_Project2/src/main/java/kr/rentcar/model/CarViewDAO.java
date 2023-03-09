@@ -43,7 +43,6 @@ public class CarViewDAO {
 		
 		String sql = "SELECT * FROM carreserve where id = ?";
 		getConnection();
-		System.out.println("test==============");
 		try {
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, id);
@@ -59,7 +58,8 @@ public class CarViewDAO {
 				}
 				
 				CarViewVO temp = new CarViewVO();
-				temp.setNo(rs.getInt("reserve_seq"));
+				temp.setSeq(rs.getInt("reserve_seq"));
+				temp.setNo(rs.getInt("no"));
 				temp.setName(carInfo.getName());
 				temp.setPrice(carInfo.getPrice());
 				temp.setImg(carInfo.getImg());
@@ -72,6 +72,7 @@ public class CarViewDAO {
 				temp.setUsenavi(rs.getInt("usewifi"));
 				temp.setUseseat(rs.getInt("usenavi"));
 				temp.setUsewifi(rs.getInt("useseat"));
+				
 				
 				list.add(temp);
 				

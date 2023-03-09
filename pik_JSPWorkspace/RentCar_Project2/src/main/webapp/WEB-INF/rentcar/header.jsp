@@ -29,47 +29,44 @@ function logcheck(log) {
 <body>
 	<table>
 		
-		<tr height="100" align="center"><td><p style="cursor: pointer;margin-left: 2px" 
-		onclick="location.href='${ctx}/main.do';
-		<%session.setAttribute("cmenu", "center.jsp");%>">
-		<img src="image/rent_logo.jpg" height="100">
-		</p></td>
-		<td width="200"></td>
+		<tr height="50" align="right">
+		<td width="200" height="20"></td>
 		
 		 <c:if test="${log eq null}">
 		<td align="center">로그인하세요. Guest 님</td>
-		<td width="200"><button onclick="location.href='${ctx}/memberLogin.do'">로그인</button></td>
+		<td width="200"><button class="btn btn-secondary" onclick="location.href='${ctx}/memberLogin.do'">로그인</button></td>
 		
 		</c:if>
 		
 		<c:if test="${log ne null}">
 		<td align="center">환영합니다. ${log} 님</td>
-		<td width="200"><button onclick="location.href='${ctx}/memberLogout.do'">로그아웃</button></td>
+		<td width="200"><button class="btn btn-secondary" onclick="location.href='${ctx}/memberLogout.do'">로그아웃</button></td>
 		</c:if>
 		
 		</tr>
 		
 		<tr>
-		<td width="100"></td>
-		<td width="300"></td>
-		<td width="200"></td>
-		<td width="200"></td>
+		<td width="100" height="1"></td>
+		<td width="300" height="1"></td>
+		<td width="200" height="1"></td>
+		<td width="200" height="1"></td>
 		</tr>
 		</table>
 		
 	<header>
 		
-		<div class="row h-40">
+		<div class="row h-60">
 		                                        				
-		<div class="col-2" style="border: white solid 1px;"
+		<div class="col-2" style="border: white solid 1px;height:40px"
       	onclick="location.href='${ctx}/carReserveMain.do'"
         >예약하기</div>
 		<div class="col-2" style="border: white solid 1px;"
 		onclick="logcheck('${log}')"
 		>예약확인</div>
 		<div class="col-2" style="border: white solid 1px;">자유게시판</div>
-		<div class="col-3" style="border: white solid 1px;">이벤트</div>
-		<div class="col-3" style="border: white solid 1px;">고객센터</div>
+		<div class="col-2" style="border: white solid 1px;">이벤트</div>
+		<div class="col-2" style="border: white solid 1px;" onclick="location.href='${ctx}/upload.do'">파일업로드</div>
+		<div class="col-2" style="border: white solid 1px;" onclick="location.href='${ctx}/home.do'">홈화면</div>
 	</div>
 	</header> 
 	

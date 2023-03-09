@@ -2,6 +2,8 @@ package kr.rentcar.model;
 
 public class CarViewVO {
 
+	
+	private int seq;
 	private int no;
 	private String name;
 	private int price;
@@ -86,5 +88,11 @@ public class CarViewVO {
 	}
 	public void setNo(int no) {
 		this.no = no;
+	}
+	public int getSeq() {
+		return seq;
+	}
+	public void setSeq(int seq) {
+		this.seq = seq;
 	}
 }

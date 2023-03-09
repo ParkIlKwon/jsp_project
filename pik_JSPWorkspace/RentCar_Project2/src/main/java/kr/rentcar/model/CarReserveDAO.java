@@ -124,13 +124,63 @@ public class CarReserveDAO {
 		return n;
 	}
 	
-	public void cosumeCar(int no,int cnt) {
+	public int cosumeCar(int no,int cnt) {
+		String sql = "select usepeople-? from rentcar where no = ?";
+		getConnection();
+		int n = 0;
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, cnt);
+			ps.setInt(2, no);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				n = rs.getInt(1);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			dbClose();
+		}
+		return n;
 		
 	}
 	
-	public void refillCar(int no,int cnt) {
-		
+	public int refillCar(int no,int cnt) {
+		String sql = "select usepeople+? from rentcar where no = ?";
+		getConnection();
+		int n = 0;
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, cnt);
+			ps.setInt(2, no);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				n = rs.getInt(1);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			dbClose();
+		}
+		return n;
 	}
+	
+	public void updateCarQTY(int no,int cnt) {
+		String sql = "update rentcar set usepeople=? where no=?";
+		getConnection();
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, cnt);
+			ps.setInt(2, no);
+			
+			ps.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			dbClose();
+		}
+	}
+	
 	
 	public void deletelist(int no) {
 		String sql = "delete from carreserve where reserve_seq=?";

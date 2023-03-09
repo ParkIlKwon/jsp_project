@@ -14,6 +14,11 @@ CREATE TABLE rentcar(
     img VARCHAR(50),
     info VARCHAR(500) -- 차정보 
 );
+
+select usepeople from rentcar where no = 1;
+update rentcar set usepeople=4 where no=1;
+
+
 -- member 테이블 생성
 CREATE TABLE member(
 	id VARCHAR(20),
@@ -41,9 +46,9 @@ CREATE TABLE carreserve(
 
 select qty from carreserve where reserve_seq=2;
 
-select * from carreserve;
+select * from carreserve where ;
 delete from carreserve;
-
+delete from rentcar;
 select * from carreserve where reserve_seq=2;
 
 

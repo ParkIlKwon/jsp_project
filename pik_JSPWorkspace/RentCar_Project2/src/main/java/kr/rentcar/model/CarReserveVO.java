@@ -1,6 +1,7 @@
 package kr.rentcar.model;
 
 public class CarReserveVO {
+
 	private int reserve_seq;	
 	private int no;				
 	private String id;
@@ -11,7 +12,6 @@ public class CarReserveVO {
 	private int usewifi;			
 	private int usenavi;
 	private int useseat;
-	
 	
 	public CarReserveVO() {}
 	public CarReserveVO(int no, String id, int qty, int dday, String rday, int usein, int usewifi,
@@ -88,4 +88,5 @@ public class CarReserveVO {
 	public void setUsenavi(int usenavi) {
 		this.usenavi = usenavi;
 	}
+
 }

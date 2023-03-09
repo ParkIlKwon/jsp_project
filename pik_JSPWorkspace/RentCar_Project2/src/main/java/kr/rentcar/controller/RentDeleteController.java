@@ -16,12 +16,14 @@ public class RentDeleteController implements Controller{
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		session.setAttribute("cmenu","ReserveCheck.jsp");
+		int QTA = Integer.parseInt(request.getParameter("QTA"));
 		int number = Integer.parseInt(request.getParameter("no"));
-		System.out.println(CarReserveDAO.getInstance().getQTY(number));
+		int seq = Integer.parseInt(request.getParameter("seq"));
 		
-		CarReserveDAO.getInstance().deletelist(number);
+		int refill= CarReserveDAO.getInstance().refillCar(number, QTA);
+		CarReserveDAO.getInstance().updateCarQTY(number, refill);
+		CarReserveDAO.getInstance().deletelist(seq);
 		
 		return "Main";
 	}
-
 }

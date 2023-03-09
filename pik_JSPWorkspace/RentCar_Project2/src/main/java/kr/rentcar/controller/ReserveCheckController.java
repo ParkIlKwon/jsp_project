@@ -15,7 +15,6 @@ import kr.rentcar.model.CarViewDAO;
 import kr.rentcar.model.CarViewVO;
 
 
-
 public class ReserveCheckController implements Controller{
 
 	@Override
