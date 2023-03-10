@@ -30,7 +30,7 @@ function rentCheck(log,cnt) {
 	let number =  $("#number").val();
 	let date = $("#date").val();
 	let today = new Date();  
-	
+
 	let A = new Date(date);
 	let B = new Date(today);
 	let dday = (A.getTime() - B.getTime()) / (24 * 60 * 60 * 1000);

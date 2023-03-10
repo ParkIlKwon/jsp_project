@@ -32,7 +32,7 @@
 		<div class="card-body">
 		<p class="card-text">
 		
-		${c.company}<br><br>${c.info}<br><br>${c.price} 만원</p>
+		${c.company}<br><br>${c.info}<br><br>렌트비용: ${c.price} 원</p>
 			 </div>
 
 		</td>

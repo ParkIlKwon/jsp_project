@@ -18,6 +18,8 @@ public class HandlerMapping {
 		mapp.put("/rentDelet.do",new RentDeleteController());
 		mapp.put("/home.do",new HomeController());
 		mapp.put("/upload.do",new uploadController());
+		mapp.put("/uploadCarImg.do",new UploadCarImgController());
+		mapp.put("/insertCar.do",new insertCarController());
 		
 		
 	}

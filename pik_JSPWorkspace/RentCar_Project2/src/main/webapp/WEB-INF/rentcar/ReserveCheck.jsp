@@ -56,7 +56,7 @@ function carinfo() {
 
     </div>
     <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1">신차가격 : ${car.price} 만원</h5>
+      <h5 class="mb-1">렌트가격 : ${car.price} 원</h5>
       <small>렌트카출고까지 day</small>
     </div>
     <small style="margin-right:30px;" onclick="carinfo()">클릭시 상세페이지로 이동합니다.</small>

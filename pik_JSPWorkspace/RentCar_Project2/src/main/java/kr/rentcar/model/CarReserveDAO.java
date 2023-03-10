@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import com.rentcar.test.car.CarVO;
 import com.rentcar.test.member.MemberDAO;
 import com.rentcar.test.member.MemberVO;
 
@@ -46,6 +47,7 @@ public class CarReserveDAO {
 			ps = conn.prepareStatement(sql);
 			rs = ps.executeQuery();
 			while (rs.next()) {
+			
 				CarReserveVO m = new CarReserveVO();
 				m.setReserve_seq(rs.getInt("reserve_seq"));
 				m.setNo(rs.getInt("no"));
@@ -181,6 +183,30 @@ public class CarReserveDAO {
 		}
 	}
 	
+	public void addCar(CarVO c) {
+		String sql = "INSERT INTO rentcar VALUES (?,?,?,?,?,?,?,?)";
+	    getConnection();
+	   
+	    try {
+	    	
+	    	ps = conn.prepareStatement(sql);
+	    	
+	    	ps.setInt(1,c.getNo());
+	    	ps.setString(2,c.getName());
+	    	ps.setInt(3,c.getCategory());
+	    	ps.setInt(4,c.getPrice());
+	    	ps.setInt(5,c.getUsepeople());
+	    	ps.setString(6,c.getCompany());
+	    	ps.setString(7,c.getImg());
+	    	ps.setString(8,c.getInfo());
+	    	
+	    	ps.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			dbClose();
+		}
+	}
 	
 	public void deletelist(int no) {
 		String sql = "delete from carreserve where reserve_seq=?";
@@ -196,7 +222,28 @@ public class CarReserveDAO {
 		} finally {
 			dbClose();
 		}
+	}
+
+	public int getMaxNum() {
+		int n = 0;
+		String sql = "select Max(no) from rentcar";
+		getConnection();
 		
+		try {
+			
+			ps = conn.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				
+				n = rs.getInt(1);
+			}
+			
+		} catch (Exception e) {
+			e.getStackTrace();
+		} finally {
+			dbClose();
+		}
+		return n+1;
 	}
 	
 

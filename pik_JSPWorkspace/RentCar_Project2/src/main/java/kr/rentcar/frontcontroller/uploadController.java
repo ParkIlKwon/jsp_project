@@ -22,11 +22,7 @@ public class uploadController implements Controller {
 		}
 		
 		
-		
 		return "Main";
-		
-		
-		
 		
 	}
 }
