@@ -12,6 +12,7 @@
 <title>Insert title here</title>
 </head>
 <script type="text/javascript">
+<c:set var="carVal"></c:set>
 
 function Delete(no,qta,seq){
 		$.ajax({
@@ -29,6 +30,15 @@ function Delete(no,qta,seq){
 function carinfo() {
 	alert("click");
 }
+
+
+function getcar(name) {
+	document.write(name);
+	location.reload();
+}
+
+
+
 
 </script>
 
@@ -53,19 +63,38 @@ function carinfo() {
       <br>OPT : Insurance-${car.usein}  WIFI-${car.usewifi} SEAT-${car.useseat} NAV-${car.usenavi} 
       <br>REN-PERI : ${car.dday} days.
       </p>
-
+	
     </div>
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1">렌트가격 : ${car.price} 원</h5>
       <small>렌트카출고까지 day</small>
     </div>
-    <small style="margin-right:30px;" onclick="carinfo()">클릭시 상세페이지로 이동합니다.</small>
+    <small style="margin-right:30px;" data-bs-toggle="modal" data-bs-target="#exampleModal" >클릭시 상세페이지로 이동합니다.</small>
     
   </div>
   <div style="height:10px"></div>
+ 
+  
   </c:forEach>
 </div>
 	
+	  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"><strong></strong> </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 	
 </body>

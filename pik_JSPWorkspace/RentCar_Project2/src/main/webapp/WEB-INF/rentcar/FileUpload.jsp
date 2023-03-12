@@ -37,7 +37,7 @@ function checkform(){
 	let check = true;
 	let test =document.querySelectorAll(".fv");
 	test.forEach((tag)=>{ if(tag.value==""){ 
-		alert(tag)
+		/* alert(tag); */
 		check = false;
 	}  })
 	return check;
@@ -72,6 +72,7 @@ function uploadFile(){
 
 function submitform(form) {
 	 if(checkform() == false){
+		 alert("폼을 전부 채워주세요.");
 	   }else{
 			alert("렌트카추가완료");
 			form.submit();
@@ -107,8 +108,6 @@ function submitform(form) {
 
 							</td>
 						</tr>
-						
-			
 						
 					</tbody>
 				</table>
